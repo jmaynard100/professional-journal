@@ -26,3 +26,13 @@ Before running the tests make sure you are serving the app via `ng serve`.
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+##Running the application
+
+Start the mongodb service and cd into the root of the project using the Angular cli. Run the command node server.js to open a working version of the application. If no errors appear navigate to localhost:3000/ in a web browser to see what the application does.
+
+When writing code and wanting to check the impact of changes quickly run the command ng serve and navigate to localhost:4200/. This method cannot make api calls to the database so should only be used to check visual changes to the application.
+
+Currently 2 functions are implemented which run on the / and /get-users paths to add a user object to the database and get all the users respecively. Ensure that a database with name journaldb exists in your mongo application by opening it and running the command use journaldb.
+
+If /get-users successfully shows data on the screen. The application is working as designed.
