@@ -1,6 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
+// Defines a component called journal. Can be called using the selector tag.
+
 @Component({
   selector: 'app-journal',
   templateUrl: './journal.component.html',
