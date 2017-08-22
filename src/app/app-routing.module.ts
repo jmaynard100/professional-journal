@@ -1,3 +1,4 @@
+import { RegisterComponent } from './components/register/register.component';
 import { CreateHistoryComponent } from './components/create-history/create-history.component';
 import { CreateJournalComponent } from './components/create-journal/create-journal.component';
 import { EntryHistoryComponent } from './components/entry-history/entry-history.component';
@@ -41,6 +42,10 @@ const routes: Routes = [
   {
     path: 'journal/:jid/entry/:eid/revise',
     component: CreateHistoryComponent,
+  },
+  {
+    path: 'register',
+    component: RegisterComponent,
   }
 ];
 
