@@ -1,12 +1,11 @@
 <ol class="breadcrumb">
-  <li class="breadcrumb-item"><a [routerLink]="['/journals']">My Journals</a></li>
-  <li class="breadcrumb-item active">Entries</li>
+  <li class="breadcrumb-item active">My Journals</li>
 </ol>
 <div class="card" style="width: 100%;">
   <div class="card-body">
     <table style='width: 100%'>
       <tr>
-        <td><h4 class="card-title">Entry 1</h4></td>
+        <td><h4 class="card-title">Journal 1</h4></td>
         <td><h6 class="card-subtitle mb-2 text-muted">18/8/2017</h6></td>
         <td style='float: right'>
           <div class="dropdown">
@@ -14,17 +13,16 @@
               ...
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenu">
-              <a class="dropdown-item" [routerLink]="['/journal/1/entry/1/revise']">Revise</a>
-              <button class="dropdown-item" type="button">Hide</button>
-              <button class="dropdown-item" type="button">Delete</button>
+              <button class="dropdown-item" type="button">Something</button>
+              <button class="dropdown-item" type="button">Something Else</button>
             </div>
           </div>
         </td>
       </tr>
     </table>
-    <p class="card-text">Created mock ups of the front end using dummy data. Created some basic functionality from the menu and other links.</p>
-    <a [routerLink]="['/journal/1/entry/1/history']" class="card-link">View history</a>
-    <a [routerLink]="['/journal/1/entry/new']" class="card-link">New entry</a>
+    <p class="card-text">Create a Professional Journal system for SDP Ltd.</p>
+    <a [routerLink]="['/journal/1']" class="card-link">Entries</a>
+    <a [routerLink]="['/journals/new']" class="card-link">New Journal</a>
   </div>
 </div>
 <div class="card" style="width: 100%;">
@@ -45,4 +43,3 @@
     <a href="#" class="card-link">Another link</a>
   </div>
 </div>
-

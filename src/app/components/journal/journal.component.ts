@@ -11,11 +11,16 @@ import { ActivatedRoute } from '@angular/router';
 export class JournalComponent implements OnInit, OnDestroy {
   id: Number;
   private sub: any;
-  constructor(private route: ActivatedRoute) { }
+  public journal: any;
+  constructor(private route: ActivatedRoute) {
+    this.journal = {
+      title: 'Journal One',
+    };
+  }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
-      this.id = +params['id'];
+      this.id = +params['jid'];
     });
   }
 
