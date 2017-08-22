@@ -10,6 +10,7 @@ import { CreateEntryComponent } from './components/create-entry/create-entry.com
 import { EntryHistoryComponent } from './components/entry-history/entry-history.component';
 import { CreateJournalComponent } from './components/create-journal/create-journal.component';
 import { CreateHistoryComponent } from './components/create-history/create-history.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { CreateHistoryComponent } from './components/create-history/create-histo
     EntryHistoryComponent,
     CreateJournalComponent,
     CreateHistoryComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
