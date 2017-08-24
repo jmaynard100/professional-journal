@@ -1,7 +1,36 @@
 <ol class="breadcrumb">
   <li class="breadcrumb-item"><a [routerLink]="['/journals']">My Journals</a></li>
-  <li class="breadcrumb-item active">Entries</li>
+  <li class="breadcrumb-item active">Journal 1</li>
 </ol>
+<div class="row">
+  <div class="col">
+    <p>
+      <a [routerLink]="['/journal/1/entry/new']" class="btn btn-info btn-lg">
+        <span class="icon icon-plus-sign"></span> New Entry
+      </a>
+    </p>
+  </div>
+  <div class="col">
+    <form>
+      Show Hidden
+      <input type="checkbox">
+      Show Deleted
+      <input type="checkbox">
+    </form>
+  </div>
+<div class="row">
+  <div class="col">
+    <form>
+      Search Journal
+      <input type="Search">
+      Between Date:
+      <input type="date" name="bday">
+      and
+      <input type="date" name="bday">
+      <input type="Submit" value="Search">
+    </form>
+  </div>
+</div>
 <div class="card" style="width: 100%;">
   <div class="card-body">
     <table style='width: 100%'>
@@ -24,7 +53,6 @@
     </table>
     <p class="card-text">Created mock ups of the front end using dummy data. Created some basic functionality from the menu and other links.</p>
     <a [routerLink]="['/journal/1/entry/1/history']" class="card-link">View history</a>
-    <a [routerLink]="['/journal/1/entry/new']" class="card-link">New entry</a>
   </div>
 </div>
 <div class="card" style="width: 100%;">

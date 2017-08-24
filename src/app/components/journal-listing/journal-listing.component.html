@@ -1,6 +1,24 @@
 <ol class="breadcrumb">
   <li class="breadcrumb-item active">My Journals</li>
 </ol>
+<p>
+  <a [routerLink]="['/journals/new']" class="btn btn-info btn-lg">
+    <span class="icon icon-plus-sign"></span> New Journal
+  </a>
+</p>
+<div class="row">
+  <div class="col">
+    <form>
+      Search all Journals
+      <input type="Search">
+      Between Date:
+      <input type="date" name="bday">
+      and
+      <input type="date" name="bday">
+      <input type="Submit" value="Search">
+    </form>
+  </div>
+</div> 
 <div class="card" style="width: 100%;">
   <div class="card-body">
     <table style='width: 100%'>
@@ -22,7 +40,6 @@
     </table>
     <p class="card-text">Create a Professional Journal system for SDP Ltd.</p>
     <a [routerLink]="['/journal/1']" class="card-link">Entries</a>
-    <a [routerLink]="['/journals/new']" class="card-link">New Journal</a>
   </div>
 </div>
 <div class="card" style="width: 100%;">
