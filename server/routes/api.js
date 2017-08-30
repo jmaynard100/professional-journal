@@ -10,19 +10,19 @@ const Journal = require('../models/journal');
 
 /* GET api listing. */
 // Get request running on the / path.
-router.get('/', (req, res) => {
+router.post('/', (req, res) => {
   
   var newUser = User({
-    username: 'starlord55' + Math.floor(Date.now()/1000),
-    password: 'password',
+    username: req.body.username,
+    password: req.body.password,
   });
 
   // Saves the user into the database.
   newUser.save(function(err) {
     if (err) {
-      res.send('Error creating user');
+      res.send({'status':'Error'});
     } else {
-      res.send('User created!');
+      res.send(User);
     }
   });
 

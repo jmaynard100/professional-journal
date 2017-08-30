@@ -1,3 +1,4 @@
+import { ApiService } from './../../services/api.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JournalListingComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor (private api: ApiService) {
+    console.log(api.testFunction());
   }
 
+  ngOnInit() {
+    this.api.testFunction().then((response: any) => {
+      console.log(response);
+    }).catch((ex: any) => {
+      console.log('Exception');
+    });
+  }
 }
