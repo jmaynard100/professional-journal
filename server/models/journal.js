@@ -5,22 +5,24 @@ var Schema = mongoose.Schema;
 
 var journalSchema = new Schema({
     
-    journalId: {type:String, required: true, unique: true},
+    
     journalName: {type:String},
     userId: {type:String},
     date: {type:Date},
+    journalSummary: {type:String},
     journalEntry: {
-        entryId: {type:String, required: true, unique: true},
+        title:{type:String, required: true},
         content: {type:String},
+        originalDate: {type:Date},
         date: {type: Date},
         hidden:{type: Boolean},
         deleted: {type: Boolean},
         entryHistory: {
-            historyId: {type:String, required: true, unique: true},
             date: {type: Date},
             content:{type:String},
             hidden: {type: Boolean},
             deleted: {type: Boolean},
+            reasonSummary: {type:String},
         }    
     }
 });

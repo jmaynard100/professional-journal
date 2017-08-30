@@ -7,7 +7,10 @@ var Schema = mongoose.Schema;
 // Create a schema
 var userSchema = new Schema({
   username: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
+  firstname: {type: String},
+  lastname: {type: String},
+  password: { type: String},
+  email:{ type: String},
 });
 
 // the schema is useless so far
