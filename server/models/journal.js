@@ -5,13 +5,13 @@ var Schema = mongoose.Schema;
 
 var journalSchema = new Schema({
     
-    
+    _id: {type:String},
     journalName: {type:String},
     userId: {type:String},
     date: {type:Date},
     journalSummary: {type:String},
     journalEntry: {
-        title:{type:String, required: true},
+        title:{type:String},
         content: {type:String},
         originalDate: {type:Date},
         date: {type: Date},

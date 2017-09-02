@@ -8,7 +8,7 @@
 </p>
 <div class="row">
   <div class="col">
-    <form>
+    <div> <!--<form>-->
       Search all Journals
       <input type="Search">
       Between Date:
@@ -16,15 +16,15 @@
       and
       <input type="date" name="bday">
       <input type="Submit" value="Search">
-    </form>
+    </div> <!--</form>-->
   </div>
 </div> 
-<div class="card" style="width: 100%;">
+<div *ngFor="let journal of journals" class="card" style="width: 100%;">
   <div class="card-body">
     <table style='width: 100%'>
       <tr>
-        <td><h4 class="card-title">Journal 1</h4></td>
-        <td><h6 class="card-subtitle mb-2 text-muted">18/8/2017</h6></td>
+        <td><h4 class="card-title">{{journal.journalName}}</h4></td>
+        <td><h6 class="card-subtitle mb-2 text-muted">{{journal.date.toString()}}</h6></td>
         <td style='float: right'>
           <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -38,25 +38,7 @@
         </td>
       </tr>
     </table>
-    <p class="card-text">Create a Professional Journal system for SDP Ltd.</p>
+    <p class="card-text">{{journal.journalSummary}}</p>
     <a [routerLink]="['/journal/1']" class="card-link">Entries</a>
-  </div>
-</div>
-<div class="card" style="width: 100%;">
-  <div class="card-body">
-    <h4 class="card-title">Card title</h4>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
-</div>
-<div class="card" style="width: 100%;">
-  <div class="card-body">
-    <h4 class="card-title">Card title</h4>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
   </div>
 </div>

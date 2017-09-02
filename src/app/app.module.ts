@@ -1,7 +1,9 @@
+import { UserDataService } from './services/user-data.service';
 import { ApiService } from './services/api.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -29,9 +31,10 @@ import { RegisterComponent } from './components/register/register.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpModule
+    HttpModule,
+    ReactiveFormsModule,
   ],
-  providers: [ApiService],
+  providers: [ApiService, UserDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
