@@ -8,6 +8,8 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/journaldb');
 
+// Define Counters
+//const counters = require('./server/counters');
 // Get our API routes
 const api = require('./server/routes/api');
 
