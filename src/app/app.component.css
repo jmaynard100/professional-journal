@@ -1,0 +1,15 @@
+nav.navbar{
+    background: grey;
+    padding-bottom: 20px;
+}
+a.navbar-brand{
+    font-size: 28px;
+    color: white;
+}
+a.nav-link{
+    color: white;
+    font-size: 16px;
+}
+button.navbar-toggler{
+    color:black;
+}

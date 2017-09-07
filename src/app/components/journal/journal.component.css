@@ -1,0 +1,19 @@
+div.card{
+    background-color: lightblue;
+    border: 10px solid white;
+}
+div.row{
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+div.box{
+    position: absolute;
+    top: 200px;
+    right: 120px;
+}
+ol.breadcrumb{
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border: 20px solid white;
+    font-size: 20px;
+}
