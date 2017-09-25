@@ -1,19 +1,53 @@
 
-div.row{
-    padding-top: 10px;
-    margin: auto;
-    width: 50%;
+.container{
+	width:100%;
+	margin:auto;
+	max-width:525px;
+	min-height:670px;
+	position:relative;
+    background:url(https://teanabroad.org/wp-content/uploads/2015/12/UTS-Media-2.jpg) no-repeat center;
+	box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
 }
-div.remember{
-    padding-bottom: 10px;
-    margin: auto;
-    width: 50%;
+.login-html{
+    margin:auto;
+    height:100%;
+    width:525px;
+	min-height:670px;
+    position:absolute;
+    right:0px;
+	padding:90px 70px 50px 70px;
+    background:rgba(224, 252, 252, 0.90);
+    
 }
-
-div.container{
-    border-radius: 25px;
-    background: lightblue;
-    padding-top: 20px; 
-    width: 500px;
-    height: 400px;
+.username{
+margin-bottom:15px;
+width:100%;
+color:#000000;
+display:block;
+border:none;
+padding:5px 10px;
+border-radius:25px;
+background:rgba(255,255,255,.1);
 }
+.pass{
+    margin-bottom:15px;
+    width:100%;
+    color:#000000;
+    display:block;
+    border:none;
+    padding:5px 10px;
+    border-radius:25px;
+    background:rgba(255,255,255,.1);
+    
+    }
+    .button{
+    width:100%;
+	color:#fff;
+    display:block;
+    border:none;
+	padding:5px 10px;
+	border-radius:25px;
+    background:rgba(255,255,255,.1);
+    background:#71D1F9;
+    }
+    
