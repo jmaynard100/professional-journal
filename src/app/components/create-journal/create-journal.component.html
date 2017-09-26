@@ -1,3 +1,7 @@
+<div class="breadcrumb flat">
+  <a [routerLink]="['/journals']">My Journals</a>
+  <a href='#' class="active" >New Journal</a>
+</div>
 <form [formGroup]="createJournalForm" (ngSubmit)="onSubmit()">
   <div class="form-group">
     <label for="exampleFormControlInput1">Journal Title</label>
