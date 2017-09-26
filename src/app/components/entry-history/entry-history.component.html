@@ -1,8 +1,9 @@
-<ol class="breadcrumb">
-  <li class="breadcrumb-item"><a [routerLink]="['/journals']">My Journals</a></li>
-  <li class="breadcrumb-item"><a [routerLink]="['/journal/1/']">Journal 1</a></li>
-  <li class="breadcrumb-item active">Entry 1 History</li>
-</ol>
+ 
+<div class="breadcrumb flat">
+  <a [routerLink]="['/journals']">My Journals</a>
+  <a [routerLink]="['/journal/1/']">Journal 1</a>
+  <a href='#' class="active" >Entry 1 history</a>
+</div>
 <div id="accordion" role="tablist">
   <div class="card">
     <div class="card-header" role="tab" id="headingOne">
