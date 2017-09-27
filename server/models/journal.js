@@ -10,21 +10,21 @@ var journalSchema = new Schema({
     userId: {type:String},
     date: {type:Date},
     journalSummary: {type:String},
-    journalEntry: {
+    journalEntry: [{
         title:{type:String},
         content: {type:String},
-        originalDate: {type:Date},
-        date: {type: Date},
+        createdAt: {type:Date},
+        lastUpdated: {type: Date},
         hidden:{type: Boolean},
         deleted: {type: Boolean},
-        entryHistory: {
+        entryHistory: [{
             date: {type: Date},
             content:{type:String},
             hidden: {type: Boolean},
             deleted: {type: Boolean},
             reasonSummary: {type:String},
-        }    
-    }
+        }]    
+    }]
 });
 var Journal = mongoose.model('Journal', journalSchema);
 module.exports = Journal;

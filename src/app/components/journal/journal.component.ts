@@ -1,3 +1,6 @@
+import { Journal, JournalEntry } from './../../journal.model';
+import { UserDataService } from './../../services/user-data.service';
+
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -11,16 +14,15 @@ import { ActivatedRoute } from '@angular/router';
 export class JournalComponent implements OnInit, OnDestroy {
   id: Number;
   private sub: any;
-  public journal: any;
-  constructor(private route: ActivatedRoute) {
-    this.journal = {
-      title: 'Journal One',
-    };
-  }
+  public journal: Journal;
+  public visibleEntries: Array<JournalEntry>;
+  constructor(private route: ActivatedRoute, private userData: UserDataService) {}
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['jid'];
+      this.journal = this.userData.getJournal(this.id);
+      this.visibleEntries = this.journal.journalEntry.filter((entry) => entry.hidden === false && entry.deleted === false);
     });
   }
 
