@@ -1,3 +1,4 @@
+import { Journal } from './../../journal.model';
 import { UserDataService } from './../../services/user-data.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -24,8 +25,6 @@ export class LoginComponent implements OnInit {
     const username = this.loginForm.controls.username.value;
     const password = this.loginForm.controls.password.value;
     this.userData.login(username, password).then(function() {
-      console.log(this.userData.getUser());
-      console.log(this.userData.getJournals());
       this.router.navigate(['/journals']);
     }.bind(this));
   }

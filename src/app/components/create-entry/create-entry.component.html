@@ -1,15 +1,13 @@
-<div> <!--<form>-->
+<form [formGroup]="createEntryForm" (ngSubmit)="onSubmit()">
   <div class="form-group">
     <label for="exampleFormControlInput1">Entry Title</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1">
+    <input type="text" class="form-control" id="exampleFormControlInput1" formControlName="entryTitle">
   </div>
   <div class="form-group">
     <label for="exampleFormControlTextarea1">Entry Content</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="entryContent"></textarea>
   </div>
   <div class="form-group">
-    <div><!--<form action="/journal/1">-->
-      <input type="submit" value="Create"/>
-    </div> <!--</form>-->    
+    <input type="submit" value="Create"/>  
   </div>
-</div> <!--</form>-->
+</form>

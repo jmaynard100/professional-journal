@@ -1,3 +1,4 @@
+import { Journal, JournalEntry, EntryHistory } from './journal.model';
 import { UserDataService } from './services/user-data.service';
 import { ApiService } from './services/api.service';
 import { BrowserModule } from '@angular/platform-browser';

@@ -1,3 +1,4 @@
+import { Journal, JournalEntry, EntryHistory } from './../../journal.model';
 import { UserDataService } from './../../services/user-data.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -21,12 +22,11 @@ export class CreateJournalComponent implements OnInit {
   }
 
   onSubmit() {
-    const journal = {
-      'journalName': this.createJournalForm.controls.journalName.value,
-      'journalSummary': this.createJournalForm.controls.journalSummary.value,
-      'journalEntries': {},
-      'userId': this.userData.getUser()._id,
-    };
+    const journal = new Journal();
+    journal.journalName = this.createJournalForm.controls.journalName.value;
+    journal.journalSummary = this.createJournalForm.controls.journalSummary.value;
+    journal.journalEntry = [];
+    journal.userId = this.userData.getUser()._id;
     this.userData.createJournal(journal).then(() =>
       this.router.navigate(['/journals'])
     );
