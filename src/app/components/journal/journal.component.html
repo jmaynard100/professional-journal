@@ -1,6 +1,6 @@
 <ol class="breadcrumb">
   <li class="breadcrumb-item"><a [routerLink]="['/journals']">My Journals</a></li>
-  <li class="breadcrumb-item active">Journal 1</li>
+  <li class="breadcrumb-item active">{{journal.journalName}}</li>
 </ol>
 <div class="row">
   <div class="col">
@@ -11,41 +11,39 @@
     </p>
   </div>
   <div class="col">
-    <div> <!--form>-->
+    <div>
       Show Hidden
-      <input type="checkbox">
-      Show Deleted
-      <input type="checkbox">
-    </div> <!--</form>-->
+      <input type="checkbox" (change)="checkBox($event)">
+    </div>
   </div>
 <div class="row">
   <div class="col">
-    <div> <!--form>-->
+    <div>
       Search Journal
-      <input type="Search">
+      <input type="text" class="form-control" (input)="searchJournal($event.target)">
       Between Date:
       <input type="date" name="bday">
       and
       <input type="date" name="bday">
       <input type="Submit" value="Search">
-    </div> <!--</form>-->
+    </div>
   </div>
 </div>
-<div *ngFor="let entry of journal.journalEntry; let i = index" class="card" style="width: 100%;">
+<div *ngFor="let entry of visibleEntries; let i = index" class="card" style="width: 100%;">
   <div class="card-body">
     <table style='width: 100%'>
       <tr>
         <td><h4 class="card-title">{{entry.title}}</h4></td>
-        <td><h6 class="card-subtitle mb-2 text-muted">{{entry.lastUpdated}}</h6></td>
+        <td><h6 class="card-subtitle mb-2 text-muted">{{entry.lastUpdated | date}}</h6></td>
         <td style='float: right'>
           <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               ...
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenu">
-              <a class="dropdown-item" [routerLink]="['/journal/1/entry/1/revise']">Revise</a>
-              <button class="dropdown-item" type="button">Hide</button>
-              <button class="dropdown-item" type="button">Delete</button>
+              <a class="dropdown-item" [routerLink]="['/journal', this.id, 'entry', i, 'revise']">Revise</a>
+              <button class="dropdown-item" type="button" (click)="hideEntry(entry, i)">Hide</button>
+              <button class="dropdown-item" type="button" (click)="deleteEntry(entry, i)">Delete</button>
             </div>
           </div>
         </td>

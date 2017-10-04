@@ -1,59 +1,31 @@
 <ol class="breadcrumb">
   <li class="breadcrumb-item"><a [routerLink]="['/journals']">My Journals</a></li>
-  <li class="breadcrumb-item"><a [routerLink]="['/journal/1/']">Journal 1</a></li>
-  <li class="breadcrumb-item active">Entry 1 History</li>
+  <li class="breadcrumb-item"><a [routerLink]="['/journal', this.jid]">{{journal.journalName}}</a></li>
+  <li class="breadcrumb-item active">{{entry.title}} History</li>
 </ol>
 <div id="accordion" role="tablist">
-  <div class="card">
+  <div *ngFor="let history of entry.entryHistory; let i = index" class="card">
     <div class="card-header" role="tab" id="headingOne">
       <div class="row">
         <div class="col">
           <h5 class="mb-0">
-            <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-              Version 3
+            <a data-toggle="collapse" href="#i" aria-expanded="false" aria-controls="i">
+              Version {{len - i}}
             </a>
           </h5>
         </div>
         <div class="col">
-          <h6 class="card-subtitle mb-2 text-muted">18/8/2017</h6>
+          <h6 class="card-subtitle mb-2 text-muted">{{history.date | date}}</h6>
         </div>
         <div class="col">
-          <p>Reason: I made several spelling mistakes and forgot like half of the day</p>
+          <p>{{history.reasonSummary}}</p>
         </div>
       </div>
     </div>
 
-    <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+    <div id="i" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
       <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header" role="tab" id="headingTwo">
-      <h5 class="mb-0">
-        <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Version 2
-        </a>
-      </h5>
-    </div>
-    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
-      <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header" role="tab" id="headingThree">
-      <h5 class="mb-0">
-        <a class="collapsed" data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Version 1
-        </a>
-      </h5>
-    </div>
-    <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
-      <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        {{history.content}}
       </div>
     </div>
   </div>
