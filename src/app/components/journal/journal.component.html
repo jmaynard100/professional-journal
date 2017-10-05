@@ -1,11 +1,11 @@
 <div class="breadcrumb flat">
   <a [routerLink]="['/journals']">My Journals</a>
-  <a href='#' class="active" >Journal 1</a>
+  <a href='#' class="active" >{{journal.journalName}}</a>
 </div>
 <div class="row">
   <div class="col">
     <p>
-      <a [routerLink]="['/journal/1/entry/new']" class="btn btn-info btn-lg">
+      <a [routerLink]="['/journal', this.id, 'entry', 'new']" class="btn btn-info btn-lg">
         <span class="icon icon-plus-sign"></span> New Entry
       </a>
     </p>
@@ -13,64 +13,43 @@
   <div class="box">
     <div> <!--form>-->
       Show Hidden
-      <input type="checkbox">
-      Show Deleted
-      <input type="checkbox">
-    </div> <!--</form>-->
+      <input type="checkbox" (change)="checkBox($event)">
+    </div>
   </div>
 <div class="row">
   <div class="col">
-    <div> <!--form>-->
+    <div>
       Search Journal
-      <input type="Search">
+      <input type="text" class="form-control" (input)="searchJournal($event.target)">
       Between Date:
       <input type="date" name="bday">
       and
       <input type="date" name="bday">
       <input type="Submit" value="Search">
-    </div> <!--</form>-->
+    </div>
   </div>
 </div>
-<div class="card" style="width: 100%;">
+<div *ngFor="let entry of visibleEntries; let i = index" class="card" style="width: 100%;">
   <div class="card-body">
     <table style='width: 100%'>
       <tr>
-        <td><h4 class="card-title">Entry 1</h4></td>
-        <td><h6 class="card-subtitle mb-2 text-muted">18/8/2017</h6></td>
+        <td><h4 class="card-title">{{entry.title}}</h4></td>
+        <td><h6 class="card-subtitle mb-2 text-muted">{{entry.lastUpdated | date}}</h6></td>
         <td style='float: right'>
           <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               ...
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenu">
-              <a class="dropdown-item" [routerLink]="['/journal/1/entry/1/revise']">Revise</a>
-              <button class="dropdown-item" type="button">Hide</button>
-              <button class="dropdown-item" type="button">Delete</button>
+              <a class="dropdown-item" [routerLink]="['/journal', this.id, 'entry', i, 'revise']">Revise</a>
+              <button class="dropdown-item" type="button" (click)="hideEntry(entry, i)">Hide</button>
+              <button class="dropdown-item" type="button" (click)="deleteEntry(entry, i)">Delete</button>
             </div>
           </div>
         </td>
       </tr>
     </table>
-    <p class="card-text">Created mock ups of the front end using dummy data. Created some basic functionality from the menu and other links.</p>
-    <a [routerLink]="['/journal/1/entry/1/history']" class="card-link">View history</a>
+    <p class="card-text">{{entry.content}}</p>
+    <a [routerLink]="['/journal', this.id, 'entry', i, 'history']" class="card-link">View history</a>
   </div>
 </div>
-<div class="card" style="width: 100%;">
-  <div class="card-body">
-    <h4 class="card-title">Card title</h4>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
-</div>
-<div class="card" style="width: 100%;">
-  <div class="card-body">
-    <h4 class="card-title">Card title</h4>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
-</div>
-

@@ -14,10 +14,6 @@
     <div> <!--<form>-->
       Search all Journals
       <input type="Search">
-      Between Date:
-      <input type="date" name="bday">
-      and
-      <input type="date" name="bday">
       <input type="Submit" value="Search">
     </div> <!--</form>-->
   </div>
@@ -27,7 +23,7 @@
     <table style='width: 100%'>
       <tr>
         <td><h4 class="card-title">{{journal.journalName}}</h4></td>
-        <td><h6 class="card-subtitle mb-2 text-muted">{{journal.date.toString()}}</h6></td>
+        <td><h6 class="card-subtitle mb-2 text-muted">{{journal.date | date}}</h6></td>
         <td style='float: right'>
           <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -42,6 +38,6 @@
       </tr>
     </table>
     <p class="card-text">{{journal.journalSummary}}</p>
-    <a [routerLink]="['/journal/1']" class="card-link">Entries</a>
+    <a [routerLink]="['/journal', journal._id]" class="card-link">Entries</a>
   </div>
 </div>
