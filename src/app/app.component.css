@@ -1,5 +1,5 @@
 nav.navbar{
-    background: grey;
+    background:linear-gradient( to top right,rgb(0, 0, 0) 0%, rgb(200, 231, 255) 90%);
     padding-bottom: 20px;
 }
 a.navbar-brand{

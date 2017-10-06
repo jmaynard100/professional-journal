@@ -16,8 +16,7 @@ export class CreateHistoryComponent implements OnInit {
   public journal: Journal;
   public entry: JournalEntry;
   createHistoryForm: FormGroup;
-  constructor(private route: ActivatedRoute, private fb: FormBuilder, private userData: UserDataService, private router: Router) {
-    
+  constructor(private route: ActivatedRoute, private fb: FormBuilder, private userData: UserDataService, private router: Router) { 
   }
 
   ngOnInit() {

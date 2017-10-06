@@ -11,6 +11,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class CreateEntryComponent implements OnInit {
   id: Number;
+  jid:number;
   private sub: any;
   public journal: Journal;
   createEntryForm: FormGroup;
