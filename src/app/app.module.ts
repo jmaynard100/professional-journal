@@ -16,7 +16,7 @@ import { EntryHistoryComponent } from './components/entry-history/entry-history.
 import { CreateJournalComponent } from './components/create-journal/create-journal.component';
 import { CreateHistoryComponent } from './components/create-history/create-history.component';
 import { RegisterComponent } from './components/register/register.component';
-import { SearchAllComponent } from './search-all/search-all.component';
+import { SearchAllComponent } from './components/search-all/search-all.component';
 
 @NgModule({
   declarations: [
