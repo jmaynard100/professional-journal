@@ -1,3 +1,7 @@
+<div class="breadcrumb flat">
+  <a [routerLink]="['/journals']">My Journals</a>
+  <a href='#' class="active" >New Journal</a>
+</div>
 <form [formGroup]="createJournalForm" (ngSubmit)="onSubmit()">
   <div class="form-group">
     <label for="exampleFormControlInput1">Journal Title</label>
@@ -7,7 +11,7 @@
     <label for="exampleFormControlTextarea1">Journal Summary</label>
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="journalSummary"></textarea>
   </div>
-  <div class="form-group">
+  <div class="form-group1">
     <input type="submit" value="Create"/>  
   </div>
 </form>

@@ -1,3 +1,4 @@
+import { SearchAllComponent } from './components/search-all/search-all.component';
 import { RegisterComponent } from './components/register/register.component';
 import { CreateHistoryComponent } from './components/create-history/create-history.component';
 import { CreateJournalComponent } from './components/create-journal/create-journal.component';
@@ -46,6 +47,10 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent,
+  },
+  {
+    path: 'search-all',
+    component: SearchAllComponent,
   }
 ];
 
