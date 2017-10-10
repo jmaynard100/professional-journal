@@ -13,23 +13,29 @@
   <div class="box">
     <div> <!--form>-->
       Show Hidden
-      <input type="checkbox" (change)="checkBox($event)">
+      <input type="checkbox" (change)="checkHiddenBox($event)">
+    </div>
+  </div>
+  <div class="box2">
+    <div> <!--form>-->
+      Show Deleted
+      <input type="checkbox" (change)="checkDeletedBox($event)">
     </div>
   </div>
 <div class="search">
   <div class="col">
     <div>
       Search Journal
-      <input type="text" class="form-control" (input)="searchJournal($event.target)">
+      <input type="text" class="form-control" (input)="searchJournal($event.target.value)">
       Between Date:
-      <input type="date" name="bday">
+      <material-datepicker (onSelect)="setDateMin($event)"></material-datepicker>
       and
-      <input type="date" name="bday">
+      <material-datepicker (onSelect)="setDateMax($event)"></material-datepicker>
       <input type="Submit" value="Search">
     </div>
   </div>
 </div>
-<div *ngFor="let entry of visibleEntries; let i = index" class="card" style="width: 100%;">
+<div *ngFor="let entry of visibleEntries" class="card" style="width: 100%;">
   <div class="card-body">
     <table style='width: 100%'>
       <tr>
@@ -41,15 +47,16 @@
               ...
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenu">
-              <a class="dropdown-item" [routerLink]="['/journal', this.id, 'entry', i, 'revise']">Revise</a>
-              <button class="dropdown-item" type="button" (click)="hideEntry(entry, i)">Hide</button>
-              <button class="dropdown-item" type="button" (click)="deleteEntry(entry, i)">Delete</button>
+              <a class="dropdown-item" [routerLink]="['/journal', this.id, 'entry', entry.id, 'revise']">Revise</a>
+              <button *ngIf="entry.hidden" class="dropdown-item" type="button" (click)="unhideEntry(entry)">Unhide</button>
+              <button *ngIf="!entry.hidden" class="dropdown-item" type="button" (click)="hideEntry(entry)">Hide</button>
+              <button class="dropdown-item" type="button" (click)="deleteEntry(entry)">Delete</button>
             </div>
           </div>
         </td>
       </tr>
     </table>
     <p class="card-text">{{entry.content}}</p>
-    <a [routerLink]="['/journal', this.id, 'entry', i, 'history']" class="card-link">View history</a>
+    <a [routerLink]="['/journal', this.id, 'entry', entry.id, 'history']" class="card-link">View history</a>
   </div>
 </div>

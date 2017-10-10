@@ -2,9 +2,11 @@ import { Journal, JournalEntry, EntryHistory } from './journal.model';
 import { UserDataService } from './services/user-data.service';
 import { ApiService } from './services/api.service';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DatepickerModule } from 'angular2-material-datepicker';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -36,6 +38,8 @@ import { SearchAllComponent } from './components/search-all/search-all.component
     AppRoutingModule,
     HttpModule,
     ReactiveFormsModule,
+    DatepickerModule,
+    BrowserAnimationsModule,
   ],
   providers: [ApiService, UserDataService],
   bootstrap: [AppComponent]

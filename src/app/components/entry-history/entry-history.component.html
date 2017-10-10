@@ -10,7 +10,7 @@
       <div class="row">
         <div class="col">
           <h5 class="mb-0">
-            <a data-toggle="collapse" href="#i" aria-expanded="false" aria-controls="i">
+            <a data-toggle="collapse" href="#{{i}}" aria-expanded="false" [attr.aria-controls]="i">
               Version {{len - i}}
             </a>
           </h5>
@@ -24,7 +24,7 @@
       </div>
     </div>
 
-    <div id="i" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+    <div id="{{i}}" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
       <div class="card-body">
         {{history.content}}
       </div>

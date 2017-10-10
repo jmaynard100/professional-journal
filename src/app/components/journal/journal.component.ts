@@ -15,6 +15,11 @@ export class JournalComponent implements OnInit, OnDestroy {
   id: Number;
   private sub: any;
   public journal: Journal;
+  public showHidden = false;
+  public showDeleted = false;
+  public searchParam = '';
+  public dateMin: Date;
+  public dateMax: Date;
   public visibleEntries: Array<JournalEntry>;
   constructor(private route: ActivatedRoute, private userData: UserDataService) {}
 
@@ -23,6 +28,9 @@ export class JournalComponent implements OnInit, OnDestroy {
       this.id = +params['jid'];
       console.log(this.id);
       this.journal = this.userData.getJournal(this.id);
+      this.journal.journalEntry.forEach((item, index) => {
+        item['id'] = index;
+      });
       console.log(this.journal);
       this.visibleEntries = this.journal.journalEntry.filter((entry) => entry.hidden === false && entry.deleted === false);
       console.log(this.visibleEntries);
@@ -33,36 +41,62 @@ export class JournalComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
-  private hideEntry(entry: JournalEntry, i: number): void {
+  private hideEntry(entry: JournalEntry): void {
     entry.hidden = true;
     console.log(this.journal);
-    this.userData.updateJournal(this.journal).then (() =>
-    this.visibleEntries = this.journal.journalEntry.filter((jEntry) => jEntry.hidden === false && jEntry.deleted === false));
+    this.userData.updateJournal(this.journal).then (() => this.filterEntries);
   }
 
-  private deleteEntry(entry: JournalEntry, i: number): void {
+  private unhideEntry(entry: JournalEntry): void {
+    entry.hidden = false;
+    console.log(this.journal);
+    this.userData.updateJournal(this.journal).then (() => this.filterEntries);
+  }
+
+  private deleteEntry(entry: JournalEntry): void {
     entry.deleted = true;
-    this.userData.updateJournal(this.journal).then (() =>
-    this.visibleEntries = this.journal.journalEntry.filter((jEntry) => jEntry.hidden === false && jEntry.deleted === false));
+    this.userData.updateJournal(this.journal).then (() => this.filterEntries);
   }
 
-  private checkBox(e) {
-    if (e.target.checked) {
-      this.visibleEntries = this.journal.journalEntry.filter((entry) => entry.deleted === false);
+  private checkHiddenBox(e) {
+    this.showHidden = !this.showHidden;
+    this.filterEntries();
+  }
+
+  private checkDeletedBox() {
+    this.showDeleted = !this.showDeleted;
+    this.filterEntries();
+  }
+
+  private filterEntries() {
+    this.visibleEntries = [];
+    this.journal.journalEntry.forEach(entry => {
       console.log(this.visibleEntries);
-    } else {
-      this.visibleEntries = this.journal.journalEntry.filter((entry) => entry.hidden === false && entry.deleted === false);
-    }
+      if (entry.content.indexOf(this.searchParam) !== -1 || entry.title.indexOf(this.searchParam) !== -1) {
+        if (!this.showHidden && entry.hidden === true) {
+          return;
+        } else if (!this.showDeleted && entry.deleted === true) {
+          return;
+        }
+        this.visibleEntries.push(entry);
+      }
+    });
+  }
+
+  private setDateMin(dateMin: Date) {
+    console.log(dateMin);
+    this.dateMin = dateMin;
+    this.filterEntries();
+  }
+
+  private setDateMax(dateMax: Date) {
+    this.dateMax = dateMax;
+    this.filterEntries();
   }
 
   private searchJournal(searchValue: string) {
     console.log(searchValue);
-    this.visibleEntries = [];
-    this.journal.journalEntry.forEach(entry => {
-      console.log(this.visibleEntries);
-      if (entry.content.indexOf(searchValue) !== -1 || entry.title.indexOf(searchValue) !== -1) {
-        this.visibleEntries.push(entry);
-      }
-    });
+    this.searchParam = searchValue;
+    this.filterEntries();
   }
 }
