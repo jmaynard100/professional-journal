@@ -58,12 +58,12 @@ export class JournalComponent implements OnInit, OnDestroy {
     this.userData.updateJournal(this.journal).then (() => this.filterEntries);
   }
 
-  private checkHiddenBox(e) {
+  checkHiddenBox() {
     this.showHidden = !this.showHidden;
     this.filterEntries();
   }
 
-  private checkDeletedBox() {
+  checkDeletedBox() {
     this.showDeleted = !this.showDeleted;
     this.filterEntries();
   }
@@ -83,18 +83,18 @@ export class JournalComponent implements OnInit, OnDestroy {
     });
   }
 
-  private setDateMin(dateMin: Date) {
+  setDateMin(dateMin: Date) {
     console.log(dateMin);
     this.dateMin = dateMin;
     this.filterEntries();
   }
 
-  private setDateMax(dateMax: Date) {
+  setDateMax(dateMax: Date) {
     this.dateMax = dateMax;
     this.filterEntries();
   }
 
-  private searchJournal(searchValue: string) {
+  searchJournal(searchValue: string) {
     console.log(searchValue);
     this.searchParam = searchValue;
     this.filterEntries();
