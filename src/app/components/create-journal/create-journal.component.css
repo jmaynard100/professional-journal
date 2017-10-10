@@ -9,7 +9,7 @@ html, body {min-height: 100%;}
     padding-top: 20px;
     font-size: 20px;
 }
-.breadcrumb a {
+.breadcrumb a, span{
 	text-decoration: none;
 	outline: none;
 	display: block;
@@ -35,11 +35,11 @@ html, body {min-height: 100%;}
 }
 
 /*hover/active styles*/
-.breadcrumb a.active, .breadcrumb a:hover{
+.breadcrumb span.active, .breadcrumb span:hover{
 	background: #333;
 	background: linear-gradient(#333, #000);
 }
-.breadcrumb a.active:after, .breadcrumb a:hover:after {
+.breadcrumb span.active:after, .breadcrumb span:hover:after {
 	background: #333;
 	background: linear-gradient(135deg, #333, #000);
 }
@@ -101,8 +101,8 @@ html, body {min-height: 100%;}
 	background: white;
 	box-shadow: 0 0 0 1px #FFFFFF;
 }
-.flat a:hover, .flat a.active, 
-.flat a:hover:after, .flat a.active:after{
+.flat a:hover, .flat span.active, 
+.flat a:hover:after, .flat span.active:after{
 	background: lightblue;
 }
 input[type="submit"] {

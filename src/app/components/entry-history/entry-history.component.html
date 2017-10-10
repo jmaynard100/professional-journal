@@ -2,7 +2,7 @@
 <div class="breadcrumb flat">
   <a [routerLink]="['/journals']">My Journals</a>
   <a [routerLink]="['/journal', this.jid]">{{journal.journalName}}</a>
-  <a href='#' class="active" >{{entry.title}} History</a>
+  <span class="active" >{{entry.title}} History</span>
 </div>
 <div id="accordion" role="tablist">
   <div *ngFor="let history of entry.entryHistory; let i = index" class="card">
