@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 
 // Mongodb creation
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/journaldb');
+mongoose.connect('mongodb://jmaynard100:password@ds113775.mlab.com:13775/heroku_2v5ssq78');
 
 // Define Counters
 //const counters = require('./server/counters');
