@@ -1,7 +1,7 @@
 <div class="breadcrumb flat">
   <a [routerLink]="['/journals']">My Journals</a>
   <a [routerLink]="['/journal', this.jid]">{{journal.journalName}}</a>
-  <a href='#' class="active" >{{entry.title}} Revise</a>
+  <span class="active" >{{entry.title}} Revise</span>
 </div>
 <form [formGroup]="createHistoryForm" (ngSubmit)="onSubmit()">
   <div class="form-group">

@@ -1,21 +1,22 @@
 <div class="container">
+  <div class="register-html">
   <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <label for="inputFirstName3" class="col-sm-2 col-form-label">First Name</label>
+      <label for="inputFirstName3" class="col-sm-2 col-form-label"> First Name</label>
       <div class="col-sm-10">
         <input type="name" class="form-control" id="inputFirstName3" formControlName="firstName" placeholder="First Name">
       </div>
     </div>
     <div class="form-group">
-      <label for="inputLastName3" class="col-sm-2 col-form-label">Last Name</label>
+      <label for="inputLastName3" class="col-sm-2 col-form-label"> Last Name</label>
       <div class="col-sm-10">
         <input type="name" class="form-control" id="inputLastName3" formControlName="lastName" placeholder="Last Name">
       </div>
     </div>
     <div class="form-group">
-      <label for="inputUserName3" class="col-sm-2 col-form-label">UserName</label>
+      <label for="inputUserName3" class="col-sm-2 col-form-label">Username</label>
       <div class="col-sm-10">
-        <input class="form-control" id="inputUserName3" formControlName="username" placeholder="UserName">
+        <input class="form-control" id="inputUserName3" formControlName="username" placeholder="Username">
       </div>
     </div>
     <div class="form-group">
@@ -34,4 +35,5 @@
           <input type="submit" [disabled]="!registerForm.valid" value="Register"/>   
       </div>
   </form>
+</div>
 </div>
