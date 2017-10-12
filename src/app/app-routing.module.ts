@@ -9,6 +9,7 @@ import { JournalComponent } from './components/journal/journal.component';
 import { LoginComponent } from './components/login/login.component';
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from './services/user-guard';
 
 // Defines the components which are placed in the route for each path.
 const routes: Routes = [
@@ -23,34 +24,41 @@ const routes: Routes = [
   {
     path: 'journal/:jid',
     component: JournalComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'journals',
     component: JournalListingComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'journal/:jid/entry/new',
     component: CreateEntryComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'journal/:jid/entry/:eid/history',
     component: EntryHistoryComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'journals/new',
     component: CreateJournalComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'journal/:jid/entry/:eid/revise',
     component: CreateHistoryComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'register',
     component: RegisterComponent,
   },
   {
-    path: 'search-all',
+    path: 'journals/search-all',
     component: SearchAllComponent,
+    canActivate: [AuthGuard]
   }
 ];
 

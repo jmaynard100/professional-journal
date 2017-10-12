@@ -1,3 +1,4 @@
+import { AuthGuard } from './services/user-guard';
 import { Journal, JournalEntry, EntryHistory } from './journal.model';
 import { UserDataService } from './services/user-data.service';
 import { ApiService } from './services/api.service';
@@ -41,7 +42,7 @@ import { SearchAllComponent } from './components/search-all/search-all.component
     DatepickerModule,
     BrowserAnimationsModule,
   ],
-  providers: [ApiService, UserDataService],
+  providers: [ApiService, UserDataService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

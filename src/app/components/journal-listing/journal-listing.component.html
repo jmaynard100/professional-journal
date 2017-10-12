@@ -11,11 +11,11 @@
 </div>
 <div class="row">
   <div class="col">
-    <div> <!--<form>-->
-      Search all Journals
-      <input type="Search">
-      <input type="Submit" value="Search">
-    </div> <!--</form>-->
+    <div>
+      <a [routerLink]="['/journals/search-all']" class="btn btn-info btn-lg">
+        <span class="icon icon-plus-sign"></span> Search All Journals
+      </a>
+    </div>
   </div>
 </div> 
 <div *ngFor="let journal of journals" class="card" style="width: 100%;">
@@ -24,17 +24,6 @@
       <tr>
         <td><h4 class="card-title">{{journal.journalName}}</h4></td>
         <td><h6 class="card-subtitle mb-2 text-muted">{{journal.date | date}}</h6></td>
-        <td style='float: right'>
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              ...
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenu">
-              <button class="dropdown-item" type="button">Something</button>
-              <button class="dropdown-item" type="button">Something Else</button>
-            </div>
-          </div>
-        </td>
       </tr>
     </table>
     <p class="card-text">{{journal.journalSummary}}</p>

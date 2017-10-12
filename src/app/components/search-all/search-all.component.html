@@ -1,4 +1,22 @@
 <div class="breadcrumb flat">
   <a [routerLink]="['/journals']">My Journals</a>
-  <span class="active" >Search Results</span>
+  <span class="active" >Search All Journals</span>
+</div>
+<div class="row">
+  <div class="col">
+    Search Journal
+      <input type="text" class="form-control" (input)="searchJournals($event.target.value)">
+  </div>
+</div>
+<div *ngFor="let journal of journals" class="card" style="width: 100%">
+  <div *ngIf="journalContains(journal)" class="card-body">
+    <div class="row">
+      <div class="col">
+        <h4 class="card-title">{{journal.journalName}}</h4>
+      </div>
+      <div class="col">
+        <h6 class="card-subtitle mb-2 text-muted">{{journal.date | date}}</h6>
+      </div>
+    </div>
+  </div>
 </div>

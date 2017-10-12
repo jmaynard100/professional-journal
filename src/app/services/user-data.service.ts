@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class UserDataService {
-  private userData;
+  private userData = null;
   private journals;
   constructor(private api: ApiService) {  }
 

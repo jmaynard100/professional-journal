@@ -18,8 +18,8 @@ export class JournalComponent implements OnInit, OnDestroy {
   public showHidden = false;
   public showDeleted = false;
   public searchParam = '';
-  public dateMin: Date;
-  public dateMax: Date;
+  public dateMin: Date = null;
+  public dateMax: Date = null;
   public visibleEntries: Array<JournalEntry>;
   constructor(private route: ActivatedRoute, private userData: UserDataService) {}
 
@@ -44,18 +44,18 @@ export class JournalComponent implements OnInit, OnDestroy {
   private hideEntry(entry: JournalEntry): void {
     entry.hidden = true;
     console.log(this.journal);
-    this.userData.updateJournal(this.journal).then (() => this.filterEntries);
+    this.userData.updateJournal(this.journal).then (() => this.filterEntries());
   }
 
   private unhideEntry(entry: JournalEntry): void {
     entry.hidden = false;
     console.log(this.journal);
-    this.userData.updateJournal(this.journal).then (() => this.filterEntries);
+    this.userData.updateJournal(this.journal).then (() => this.filterEntries());
   }
 
   private deleteEntry(entry: JournalEntry): void {
     entry.deleted = true;
-    this.userData.updateJournal(this.journal).then (() => this.filterEntries);
+    this.userData.updateJournal(this.journal).then (() => this.filterEntries());
   }
 
   checkHiddenBox() {
@@ -77,7 +77,14 @@ export class JournalComponent implements OnInit, OnDestroy {
           return;
         } else if (!this.showDeleted && entry.deleted === true) {
           return;
+        } else if (this.dateMin !== null && new Date(entry.createdAt) < this.dateMin) {
+          return;
+        } else if (this.dateMax !== null && new Date(entry.createdAt) > this.dateMax) {
+          return;
         }
+        console.log (typeof new Date(entry.createdAt));
+        console.log (typeof this.dateMin);
+        console.log(new Date(entry.createdAt) < this.dateMin);
         this.visibleEntries.push(entry);
       }
     });
