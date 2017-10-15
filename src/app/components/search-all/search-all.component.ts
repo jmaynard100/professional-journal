@@ -22,7 +22,7 @@ export class SearchAllComponent implements OnInit {
   }
 
   journalContains(journal: Journal): Boolean {
-    var contains = false;
+    let contains = false;
     this.visibleEntries = [];
     this.journal = journal;
     journal.journalEntry.forEach(entry => {
@@ -36,7 +36,7 @@ export class SearchAllComponent implements OnInit {
   }
 
   entryContains(entry: JournalEntry): Boolean {
-    var contains = false;
+    let contains = false;
     if (entry.content.indexOf(this.searchParam) !== -1 || entry.title.indexOf(this.searchParam) !== -1) {
       contains = true;
     }
@@ -49,7 +49,7 @@ export class SearchAllComponent implements OnInit {
   }
 
   filterJournals(): void {
-    var contains = false;
+    let contains = false;
     this.visibleJournals = [];
     this.journals.forEach(journal => {
       journal.journalEntry.forEach(entry => {
