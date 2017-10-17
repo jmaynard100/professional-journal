@@ -6,7 +6,7 @@ RouterStateSnapshot } from '@angular/router';
 
 @Injectable()
 
-export class AuthGuard implements CanActivate {
+export class LoginGuard implements CanActivate {
 
 auth: any = {};
 
@@ -15,12 +15,11 @@ constructor(private userDataService: UserDataService, private router: Router) {
 }
 
 canActivate() {
-    if (this.userDataService.getUser() !== null) {
+    if (this.userDataService.getUser() === null) {
         return true;
-    }
-    else {
-        this.router.navigate(['/']);
+    } else {
+        this.router.navigate(['/journals']);
     }
     return false;
-}
+    }
 }

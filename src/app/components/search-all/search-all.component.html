@@ -17,6 +17,9 @@
         <div class="col">
           <h6 class="card-subtitle mb-2 text-muted">{{journal.date | date}}</h6>
         </div>
+        <div class="col">
+          <a [routerLink]="['/journal', journal._id]" class="card-link">View Journal</a>
+        </div>
       </div>
     </div>
   <div *ngFor="let entry of visibleEntries; let i = index">
@@ -32,6 +35,9 @@
           </div>
           <div class="col">
             <h6 class="card-subtitle mb-2 text-muted">{{entry.createdAt | date}}</h6>
+          </div>
+          <div clas="col">
+            <a [routerLink]="['/journal', journal._id, 'entry', entry.id, 'revise']" class="card-link">Edit Entry</a>
           </div>
         </div>
       </div>

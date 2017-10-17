@@ -9,12 +9,17 @@
   <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/']">Logout</a>
+        <a class="nav-link" (click)="logout()">Logout</a>
       </li>
     </ul>
   </div>
 </nav>
 <div class="container">
+  <div *ngIf="alerts.getMessage().length >= 1" class="row">
+    <div class="alert {{alerts.getSeverity()}}" role="alert">
+      {{alerts.getMessage()}}
+    </div>
+  </div>
 <!-- Loads the component currently in the router.-->
   <router-outlet></router-outlet>
 </div>

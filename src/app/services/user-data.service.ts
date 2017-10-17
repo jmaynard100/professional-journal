@@ -8,11 +8,17 @@ import { Injectable } from '@angular/core';
 export class UserDataService {
   private userData = null;
   private journals;
-  constructor(private api: ApiService) {  }
+  constructor(private api: ApiService) {
+    if (localStorage.getItem('journalUserData') !== undefined && localStorage.getItem('journalUserData') !== undefined) {
+      this.userData = JSON.parse(localStorage.getItem('journalUserData'));
+      this.journals = JSON.parse(localStorage.getItem('journalData'));
+    }
+  }
 
   public login(username, password): Promise<any> {
     return this.api.authenticateUser(username, password).then(function(user){
       this.userData = user;
+      localStorage.setItem('journalUserData', JSON.stringify(this.userData));
     }.bind(this)).then(() => this.setJournals(this.userData._id));
   }
 
@@ -23,6 +29,7 @@ export class UserDataService {
   public setJournals(userId): Promise<any> {
     return this.api.getJournals(this.userData._id).then(function(journals) {
       this.journals = journals;
+      localStorage.setItem('journalData', JSON.stringify(journals));
     }.bind(this));
 
   }
@@ -50,5 +57,9 @@ export class UserDataService {
   }
   public getJournals() {
     return this.journals;
+  }
+  public emptyData() {
+    this.userData = null;
+    this.journals = [];
   }
 }

@@ -28,7 +28,7 @@ export class CreateHistoryComponent implements OnInit {
     });
     this.createHistoryForm = this.fb.group({
       historyContent: [ this.entry.content, Validators.required ],
-      reasonSummary: [ '', Validators.required ],
+      reasonSummary: [ '', [Validators.required, Validators.minLength(1)] ],
     });
   }
 

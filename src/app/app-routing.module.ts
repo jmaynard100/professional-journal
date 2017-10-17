@@ -1,3 +1,4 @@
+import { LoginGuard } from './services/login.guard';
 import { SearchAllComponent } from './components/search-all/search-all.component';
 import { RegisterComponent } from './components/register/register.component';
 import { CreateHistoryComponent } from './components/create-history/create-history.component';
@@ -16,10 +17,12 @@ const routes: Routes = [
   {
     path: '',
     component: LoginComponent,
+    canActivate: [LoginGuard]
   },
   {
     path: 'login',
     component: LoginComponent,
+    canActivate: [LoginGuard]
   },
   {
     path: 'journal/:jid',

@@ -19,6 +19,11 @@ export class SearchAllComponent implements OnInit {
 
   ngOnInit() {
     this.journals = this.userData.getJournals();
+    this.journals.forEach(journal => {
+      journal.journalEntry.forEach((item, index) => {
+        item['id'] = index;
+      });
+    });
   }
 
   journalContains(journal: Journal): Boolean {
@@ -28,7 +33,8 @@ export class SearchAllComponent implements OnInit {
     journal.journalEntry.forEach(entry => {
       this.visibleEntries.push(entry);
       console.log(this.visibleEntries);
-      if (entry.content.indexOf(this.searchParam) !== -1 || entry.title.indexOf(this.searchParam) !== -1) {
+      if ((entry.content.indexOf(this.searchParam) !== -1 || entry.title.indexOf(this.searchParam) !== -1)
+        && entry.hidden === false && entry.deleted === false) {
         contains = true;
       }
     });
@@ -36,8 +42,10 @@ export class SearchAllComponent implements OnInit {
   }
 
   entryContains(entry: JournalEntry): Boolean {
+    console.log(entry);
     let contains = false;
-    if (entry.content.indexOf(this.searchParam) !== -1 || entry.title.indexOf(this.searchParam) !== -1) {
+    if ((entry.content.indexOf(this.searchParam) !== -1 || entry.title.indexOf(this.searchParam) !== -1)
+      && entry.hidden === false && entry.deleted === false) {
       contains = true;
     }
     return contains;
@@ -53,7 +61,8 @@ export class SearchAllComponent implements OnInit {
     this.visibleJournals = [];
     this.journals.forEach(journal => {
       journal.journalEntry.forEach(entry => {
-        if (entry.content.indexOf(this.searchParam) !== -1 || entry.title.indexOf(this.searchParam) !== -1) {
+        if ((entry.content.indexOf(this.searchParam) !== -1 || entry.title.indexOf(this.searchParam) !== -1)
+          && entry.hidden === false && entry.deleted === false) {
           contains = true;
         }
       });
