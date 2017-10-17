@@ -10,6 +10,18 @@
     padding: 0 10px 0 30px;
 	position: relative;
 }
+.card-body{
+    background-color: lightblue;
+    border: 10px solid white;
+    padding-top: 10px;
+    padding-right: 30px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+}
+.row{
+    padding-bottom: 30px;
+	padding-top: 30px;
+}
 /*since the first link does not have a triangle before it we can reduce the left padding to make it look consistent with other links*/
 .breadcrumb a:first-child {
 	padding-left: 46px;
