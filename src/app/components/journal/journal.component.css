@@ -1,3 +1,6 @@
+div.card-header{
+	background-color: lightblue;
+}
 div.card{
     background-color: lightblue;
     border: 10px solid white;

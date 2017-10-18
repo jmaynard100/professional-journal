@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
-
+/* Uses the data in the login form to do authentication*/
   onSubmit() {
     const username = this.loginForm.controls.username.value;
     const password = this.loginForm.controls.password.value;

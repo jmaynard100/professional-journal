@@ -20,7 +20,7 @@ export class CreateJournalComponent implements OnInit {
 
   ngOnInit() {
   }
-
+/* Creates a new Journal object out of the data submitted from the form and uses it to create a new Journal in the database.*/
   onSubmit() {
     const journal = new Journal();
     journal.journalName = this.createJournalForm.controls.journalName.value;

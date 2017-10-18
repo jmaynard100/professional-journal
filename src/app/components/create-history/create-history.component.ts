@@ -31,7 +31,7 @@ export class CreateHistoryComponent implements OnInit {
       reasonSummary: [ '', [Validators.required, Validators.minLength(1)] ],
     });
   }
-
+/* Creates both a history object and updates the existing entry based on the data submitted from the form.*/
   onSubmit() {
     const history = new EntryHistory();
     history.content = this.entry.content;

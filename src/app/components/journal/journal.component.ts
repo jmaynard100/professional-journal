@@ -67,7 +67,7 @@ export class JournalComponent implements OnInit, OnDestroy {
     this.showDeleted = !this.showDeleted;
     this.filterEntries();
   }
-
+/* Used to determine which entries in the current Journal to be shown to the user.*/
   private filterEntries() {
     this.visibleEntries = [];
     this.journal.journalEntry.forEach(entry => {

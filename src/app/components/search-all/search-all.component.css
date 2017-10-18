@@ -19,8 +19,8 @@
     padding-left: 30px;
 }
 .row{
-    padding-bottom: 30px;
-	padding-top: 30px;
+    padding-bottom: 5px;
+	padding-top: 5px;
 }
 /*since the first link does not have a triangle before it we can reduce the left padding to make it look consistent with other links*/
 .breadcrumb a:first-child {

@@ -5,7 +5,7 @@ ActivatedRouteSnapshot,
 RouterStateSnapshot } from '@angular/router';
 
 @Injectable()
-
+/* Sends the user to the /journals page if there is a user in the userDataService*/
 export class LoginGuard implements CanActivate {
 
 auth: any = {};

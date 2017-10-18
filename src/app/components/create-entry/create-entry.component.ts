@@ -11,7 +11,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class CreateEntryComponent implements OnInit {
   id: Number;
-  jid:number;
+  jid: number;
   private sub: any;
   public journal: Journal;
   createEntryForm: FormGroup;
@@ -28,7 +28,7 @@ export class CreateEntryComponent implements OnInit {
       this.journal = this.userData.getJournal(this.id);
     });
   }
-
+/* Creates a new entry object out of the submitted inputs from the form.*/
   onSubmit() {
     const entry = new JournalEntry();
     entry.title = this.createEntryForm.controls.entryTitle.value;
