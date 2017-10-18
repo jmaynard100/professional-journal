@@ -4,7 +4,7 @@
 		max-width:700px;
 		min-height:750px;
 		position:relative;
-		background:url(http://www.ttw.com.au/wp-content/uploads/2016/02/Durbach-Block-3.jpg) no-repeat center;
+		background: url("../../../assets/Durbach-Block-3.jpg") no-repeat center;
 		box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
 }
 .register-html{
