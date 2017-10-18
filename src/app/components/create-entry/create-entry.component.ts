@@ -17,15 +17,15 @@ export class CreateEntryComponent implements OnInit {
   createEntryForm: FormGroup;
   constructor(private route: ActivatedRoute, private fb: FormBuilder, private userData: UserDataService, private router: Router) {
     this.createEntryForm = this.fb.group({
-      entryTitle: [ '', Validators.required ],
-      entryContent: [ '', Validators.required ],
+      entryTitle: [ '', [Validators.required, Validators.minLength(1)] ],
+      entryContent: [ '', [Validators.required, Validators.minLength(1)] ],
     });
   }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
-      this.id = +params['jid'];
-      this.journal = this.userData.getJournal(this.id);
+      this.jid = +params['jid'];
+      this.journal = this.userData.getJournal(this.jid);
     });
   }
 /* Creates a new entry object out of the submitted inputs from the form.*/
@@ -40,7 +40,7 @@ export class CreateEntryComponent implements OnInit {
     entry.deleted = false;
     this.journal.journalEntry.unshift(entry);
     this.userData.updateJournal(this.journal).then(() =>
-      this.router.navigate(['/journal', this.id])
+      this.router.navigate(['/journal', this.jid])
     );
   }
 

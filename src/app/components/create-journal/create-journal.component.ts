@@ -13,7 +13,7 @@ export class CreateJournalComponent implements OnInit {
   createJournalForm: FormGroup;
   constructor(private fb: FormBuilder, private userData: UserDataService, private router: Router) {
     this.createJournalForm = this.fb.group({
-      journalName: [ '', Validators.required ],
+      journalName: [ '', [Validators.required, Validators.minLength(1)] ],
       journalSummary: ''
     });
   }
