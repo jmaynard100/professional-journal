@@ -9,11 +9,11 @@
   </div>
 </nav>
 <div class="container">
-  <div *ngIf="alerts.getMessage().length >= 1" class="row">
+  <!--<div *ngIf="alerts.getMessage().length >= 1" class="row">
     <div class="alert {{alerts.getSeverity()}}" role="alert">
       {{alerts.getMessage()}}
     </div>
   </div>
-<!-- Loads the component currently in the router.-->
+Loads the component currently in the router.-->
   <router-outlet></router-outlet>
 </div>
