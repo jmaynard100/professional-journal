@@ -13,8 +13,11 @@ div.row{
 }
 .col1{
 	position: absolute;
-	right: 120px;
-	top: 200px;
+	bottom: 20px;
+	left: 920px;
+}
+.col{
+	position: relative;
 }
 @import url(https://fonts.googleapis.com/css?family=Merriweather+Sans);
 
