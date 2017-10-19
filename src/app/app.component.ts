@@ -11,7 +11,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
-  constructor ( private userData: UserDataService, private router: Router, public alerts: AlertService) {  }
+  constructor ( public userData: UserDataService, private router: Router, public alerts: AlertService) {  }
 
   logout() {
     this.userData.emptyData();

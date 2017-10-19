@@ -3,7 +3,7 @@
 <nav class="navbar">
   <a class="navbar-brand" [routerLink]="['/journals']">My Journal</a>
   <div class="justify-content-end" id="navbarSupportedContent">
-    <div class="nav-item">
+    <div *ngIf="userData.getUser() != null" class="nav-item">
       <button class="btn btn-secondary" type="submit" (click)= "logout()">Logout</button>
     </div>
   </div>
