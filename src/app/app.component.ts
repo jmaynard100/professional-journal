@@ -6,12 +6,13 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
+  providers: [UserDataService],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   title = 'app';
-  constructor ( public userData: UserDataService, private router: Router, public alerts: AlertService) {  }
+  constructor ( private userData: UserDataService, private router: Router, public alerts: AlertService) {  }
 
   logout() {
     this.userData.emptyData();
