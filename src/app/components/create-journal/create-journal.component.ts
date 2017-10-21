@@ -13,14 +13,14 @@ export class CreateJournalComponent implements OnInit {
   createJournalForm: FormGroup;
   constructor(private fb: FormBuilder, private userData: UserDataService, private router: Router) {
     this.createJournalForm = this.fb.group({
-      journalName: [ '', Validators.required ],
+      journalName: [ '', [Validators.required, Validators.minLength(1)] ],
       journalSummary: ''
     });
   }
 
   ngOnInit() {
   }
-
+/* Creates a new Journal object out of the data submitted from the form and uses it to create a new Journal in the database.*/
   onSubmit() {
     const journal = new Journal();
     journal.journalName = this.createJournalForm.controls.journalName.value;

@@ -8,9 +8,15 @@ div.card{
      
 }
 div.row{
-    padding-bottom: 30px;
+	padding-bottom: 30px;
     padding-top: 30px;
 }
+.col1{
+	position: absolute;
+	right: 120px;
+	top: 200px;
+}
+
 @import url(https://fonts.googleapis.com/css?family=Merriweather+Sans);
 
 

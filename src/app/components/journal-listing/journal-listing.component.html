@@ -1,23 +1,22 @@
 <div class="breadcrumb flat">
   <span class="active" >My Journals</span>
 </div>
-<div class="row">
+<div class="row" style="display: inline-block">
   <div class="col">
- <p>
-  <a [routerLink]="['/journals/new']" class="btn btn-info btn-lg">
-    <span class="icon icon-plus-sign"></span> New Journal
-  </a>
- </p>
-</div>
-<div class="row">
-  <div class="col">
+    <p>
+      <a [routerLink]="['/journals/new']" class="btn btn-info btn-lg">
+        <span class="icon icon-plus-sign"></span> New Journal
+      </a>
+    </p>
+  </div>
+  <div class="col1" style="float: right">
     <div>
       <a [routerLink]="['/journals/search-all']" class="btn btn-info btn-lg">
         <span class="icon icon-plus-sign"></span> Search All Journals
       </a>
     </div>
   </div>
-</div> 
+</div>
 <div *ngFor="let journal of journals" class="card" style="width: 100%;">
   <div class="card-body">
     <table style='width: 100%'>

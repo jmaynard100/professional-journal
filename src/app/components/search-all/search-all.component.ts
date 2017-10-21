@@ -25,7 +25,7 @@ export class SearchAllComponent implements OnInit {
       });
     });
   }
-
+/* checks whether a journal contains the search value in any of the entries.*/
   journalContains(journal: Journal): Boolean {
     let contains = false;
     this.visibleEntries = [];
@@ -40,7 +40,7 @@ export class SearchAllComponent implements OnInit {
     });
     return contains;
   }
-
+/* Checks whether an entry contains the search value.*/
   entryContains(entry: JournalEntry): Boolean {
     console.log(entry);
     let contains = false;
@@ -55,7 +55,8 @@ export class SearchAllComponent implements OnInit {
     this.searchParam = searchValue;
     this.filterJournals();
   }
-
+/* Filters Journals to create a list of the journals which should be visible to the user based on 
+    the contents of the search box.*/
   filterJournals(): void {
     let contains = false;
     this.visibleJournals = [];

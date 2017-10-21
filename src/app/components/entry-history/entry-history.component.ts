@@ -16,7 +16,7 @@ export class EntryHistoryComponent implements OnInit, OnDestroy {
   public entry: JournalEntry;
   public len: number;
   constructor(private route: ActivatedRoute, private userData: UserDataService) { }
-
+/* Initialises some variables used in HTML.*/
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.jid = +params['jid'];

@@ -3,17 +3,17 @@
 <nav class="navbar">
   <a class="navbar-brand" [routerLink]="['/journals']">My Journal</a>
   <div class="justify-content-end" id="navbarSupportedContent">
-    <div class="nav-item">
+    <div *ngIf="userData.getUser() != null" class="nav-item">
       <button class="btn btn-secondary" type="submit" (click)= "logout()">Logout</button>
     </div>
   </div>
 </nav>
 <div class="container">
-  <div *ngIf="alerts.getMessage().length >= 1" class="row">
+  <!--<div *ngIf="alerts.getMessage().length >= 1" class="row">
     <div class="alert {{alerts.getSeverity()}}" role="alert">
       {{alerts.getMessage()}}
     </div>
   </div>
-<!-- Loads the component currently in the router.-->
+Loads the component currently in the router.-->
   <router-outlet></router-outlet>
 </div>

@@ -14,7 +14,7 @@ export class UserDataService {
       this.journals = JSON.parse(localStorage.getItem('journalData'));
     }
   }
-
+/* Finds the correct user from the database and saves it in the userDataService.*/
   public login(username, password): Promise<any> {
     return this.api.authenticateUser(username, password).then(function(user){
       this.userData = user;

@@ -66,11 +66,17 @@ router.post('/create-user', (req, res) =>{
     });
 
     // Saves the journal into the database.
-    newUser.save(function(err) {
-      if (err) {
-        res.send({'status': 'error'});
-      } else {
-        res.send({'status': 'success', 'user': newUser});
+    User.findOne({ "username": req.body.username}, function(err, result) {
+      if (err) {console.log("aaah");}
+      if (!result) {
+        console.log(newUser);
+        newUser.save(function(err) {
+          if (err) {
+            res.send({'status': 'error'});
+          } else {
+            res.send({'status': 'success', 'user': newUser});
+          }
+        });
       }
     });
   });

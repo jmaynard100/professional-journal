@@ -24,7 +24,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
   }
-
+/* Uses the form data to create a user object and save it in the database.*/
   onSubmit() {
     const user = new User();
     user.firstname = this.registerForm.controls.firstName.value;
