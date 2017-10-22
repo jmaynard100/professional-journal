@@ -6,8 +6,6 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RegisterComponent } from './register.component';
 
 describe('RegisterComponent', () => {
-  // let component: RegisterComponent;
-  //let fixture: ComponentFixture<RegisterComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -16,20 +14,6 @@ describe('RegisterComponent', () => {
       .compileComponents();
   }));
 
-
-
-  // beforeEach(() => {
-  //   TestBed.configureTestingModule({
-  //     imports: [ReactiveFormsModule,AppModule]
-
-  //   });
-  // });
-
-  // beforeEach(() => {
-  //   TestBed.configureTestingModule({
-  //     declarations: [ RegisterComponent ]
-  //   })
-  // })
 
   it('should be created', inject([UserDataService], (service: UserDataService) => {
     let fixture = TestBed.createComponent(RegisterComponent);
@@ -105,34 +89,6 @@ describe('RegisterComponent', () => {
 
     expect(app.payload).toEqual(JSON.stringify({firstName:"john",lastName:"snow",username:"king_in_the_north",email:"test@test.com",password:"pass123"}));
 
-    // let fixture = TestBed.createComponent(RegisterComponent);
-    // let app = fixture.debugElement.componentInstance;
-    // app. = [
-    //   {
-    //     controlType: 'text',
-    //     id: 'first',
-    //     label: 'My First',
-    //     required: false
-    //   },
-    //   {
-    //     controlType: 'text',
-    //     id: 'second',
-    //     label: 'Second!',
-    //     required: true
-    //   }
-    // ];
-    // app.ngOnInit();
-
-    // app.formGroup.controls['first'].setValue('pizza');
-    // app.submit();
-
-    // expect(app.payload).toEqual(JSON.stringify({ first: 'pizza', second: '' }));
   });
 
-
-  // it('should create the app', inject([UserDataService], (service: UserDataService) => {
-  //   let fixture = TestBed.createComponent(RegisterComponent);
-  //   let app = fixture.debugElement.componentInstance;
-  //   expect(app).toBeTruthy;
-  // }));
 });
