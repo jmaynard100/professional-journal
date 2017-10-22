@@ -1,3 +1,4 @@
+import { ApiService } from './../../services/api.service';
 import { User } from './../../user.model';
 import { Journal } from './../../journal.model';
 import { UserDataService } from './../../services/user-data.service';
@@ -7,10 +8,15 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 
 @Component({
   selector: 'app-register',
+  providers: [UserDataService,ApiService],
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
 })
+
+
+
 export class RegisterComponent implements OnInit {
+  payload: string
   registerForm: FormGroup;
   constructor(private fb: FormBuilder, private userData: UserDataService, private router: Router) {
     this.registerForm = this.fb.group({
@@ -24,7 +30,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
   }
-/* Uses the form data to create a user object and save it in the database.*/
+
   onSubmit() {
     const user = new User();
     user.firstname = this.registerForm.controls.firstName.value;
@@ -35,5 +41,6 @@ export class RegisterComponent implements OnInit {
     this.userData.createUser(user).then(function() {
       this.router.navigate(['/login']);
     }.bind(this));
+    this.payload = JSON.stringify(this.registerForm.value);
   }
 }
