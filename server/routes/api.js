@@ -8,8 +8,6 @@ const Counters = require('../models/counters');
 const User = require('../models/user');
 const Journal = require('../models/journal');
 
-/*Function designed to increment the id of each member of the database by 1 every time a new one 
-  is created.*/
 function getNextSequenceValue(sequenceName) {
   return new Promise(function(resolve, reject) {
     var sequenceDocument = Counters.findByIdAndUpdate (
@@ -30,8 +28,9 @@ function getNextSequenceValue(sequenceName) {
   });
 }
 
-/* GET api listing. */
-// Get request running on the / path.
+/**
+ * Debugging only
+ */
 router.get('/', (req, res) => {
   var seq = getNextSequenceValue("userId").then(function(seq){
     var newUser = User({
